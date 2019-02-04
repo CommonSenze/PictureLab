@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.image.*;
-import javax.swing.border.l;
+import javax.swing.border.*;
 /**
  * Displays a picture and lets you explore the picture by displaying the row, column, red,
  * green, and blue values of the pixel at the cursor when you click a mouse button or

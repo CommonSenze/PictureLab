@@ -177,13 +177,46 @@ public class Picture extends SimplePicture
 			// loop from 13 to just before the mirror point
 			for (int col = 13; col < mirrorPoint; col++)
 			{
-
+				count++;
 				leftPixel = pixels[row][col];      
 				rightPixel = pixels[row]                       
 						[mirrorPoint - col + mirrorPoint];
 				rightPixel.setColor(leftPixel.getColor());
 			}
 		}
+		System.out.println(count+ " is the count.");
+	}
+	
+	public void mirrorArms()
+	{
+		int mirrorPoint = 225; // this a row
+		Pixel upPixel = null;
+		Pixel downPixel = null;
+		int count = 0;
+		Pixel[][] pixels = this.getPixels2D();
+
+		// loop through the rows
+		for (int col = 157; col < mirrorPoint; col++)
+		{
+			// loop from 13 to just before the mirror point
+			for (int row = 102; row < 170; row++)
+			{
+				count++;
+				upPixel = pixels[row][col];      
+				downPixel = pixels[row]                       
+						[mirrorPoint - col + mirrorPoint];
+				downPixel.setColor(upPixel.getColor());
+			}
+			for (int row = 239; row < 295; row++)
+			{
+				count++;
+				upPixel = pixels[row][col];      
+				downPixel = pixels[row]                       
+						[mirrorPoint - col + mirrorPoint];
+				downPixel.setColor(upPixel.getColor());
+			}
+		}
+		System.out.println(count);
 	}
 
 	/** copy from the passed fromPic to the

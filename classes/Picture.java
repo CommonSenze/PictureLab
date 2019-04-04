@@ -163,6 +163,27 @@ public class Picture extends SimplePicture {
 		}
 		System.out.println(count + " is the count.");
 	}
+	
+	public void mirrorDiagonal()   {     
+		Pixel[][] pixels = this.getPixels2D();
+		int width = pixels.length;
+		int height = pixels[0].length;
+		double movement = pixels[0].length/(double)width;
+		HashMap<Integer, Double> coords = new HashMap<>();
+		for (double col = 0,row = 0; col < pixels[0].length&&row < pixels.length; col++,row++) {
+			coords.put((int)row, col);
+		}
+
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				double k = coords.get(x);
+				if (y > (int)k)continue;
+				Pixel topPixel = pixels[(int) x][(int) y];
+				Pixel bottomPixel = pixels[(int) (width - 1 - x)][(int) (height - 1 - y)];
+				bottomPixel.setColor(topPixel.getColor());
+			}
+		}
+	}
 
 	public void mirrorArms() {
 		int mirrorPoint = 225; // this a row
